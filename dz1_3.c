@@ -26,7 +26,12 @@ int main() {
 
 int* find_maximum(size_t n, int* array, const size_t m) {
 
+	if (!n && !array && !m && m > n)
+		return NULL;
+
 	int *maximum = malloc(m * sizeof(int));
+	if (!maximum) 
+		return NULL;
 
 	for (size_t j = 0; j < m; ++j) {
 		maximum[j] = array[0];
@@ -52,8 +57,6 @@ void print(const size_t count, int *array) {
 
 int* read(size_t* N, size_t* M) {
 	if ( scanf("%zu", N) == 0)
-		return NULL;
-	if (*N <= 0)
 		return NULL;
 
 	int* numbers = malloc( (*N) * sizeof(int));
